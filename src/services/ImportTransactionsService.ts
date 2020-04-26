@@ -26,6 +26,8 @@ class ImportTransactionsService {
 
     const transactionsCreated: Transaction[] = [];
 
+    //TODO a regra da verificação da categoria, não me permite utilizar o Promise.all()
+    //rodando ao mesmo tempo não tem como saber se já incluí alguma
     for (const { title, type, value, category } of transactions) {
       transactionsCreated.push(
         await createTransactionService.execute({
