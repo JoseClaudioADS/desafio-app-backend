@@ -28,6 +28,9 @@ class ImportTransactionsService {
 
     //TODO a regra da verificação da categoria, não me permite utilizar o Promise.all()
     //rodando ao mesmo tempo não tem como saber se já incluí alguma
+
+    //Não faz sentido criar todo o código do CreateTransactionService aqui, devemos reusar,
+    //caso uma transação for criada de forma diferente, teriamos de mudar em 2 lugares.
     for (const { title, type, value, category } of transactions) {
       transactionsCreated.push(
         await createTransactionService.execute({
